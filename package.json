@@ -2,7 +2,7 @@
   "name": "pr-title-check",
   "version": "0.0.0",
   "description": "PR title check GitHub action",
-  "main": "lib/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write '**/*.ts'",

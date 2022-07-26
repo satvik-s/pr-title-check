@@ -50,8 +50,8 @@ function run() {
         const inputRegexString = core.getInput('regex');
         core.info(`Input regex: ${inputRegexString}`);
         const regex = new RegExp(inputRegexString, 'gm');
-        const patternExistsInInput = regex.test(pullRequestTitle);
-        if (!patternExistsInInput) {
+        const regexExistsInTitle = regex.test(pullRequestTitle);
+        if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain regex pattern');
             return;
         }

@@ -23,10 +23,9 @@ function run(): void {
         core.info(`Input regex: ${inputRegexString}`);
 
         const regex = new RegExp(inputRegexString, 'gm');
+        const regexExistsInTitle = regex.test(pullRequestTitle);
 
-        const patternExistsInInput = regex.test(pullRequestTitle);
-
-        if (!patternExistsInInput) {
+        if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain regex pattern');
             return;
         }

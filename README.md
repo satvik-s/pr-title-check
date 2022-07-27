@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
-
 # PR Title Verify
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/satvik-s/pr-title-check)

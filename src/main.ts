@@ -48,9 +48,10 @@ function run(): void {
         const regexExistsInTitle = regex.test(pullRequestTitle);
 
         core.info(
-            `${regex.source},
-            ${pullRequestTitle},
-            ${regex.exec(pullRequestTitle)?.toString() ?? 'n/a'}`,
+            `${regex.source},` +
+                `${regex.flags},` +
+                `${pullRequestTitle},` +
+                `${regex.exec(pullRequestTitle)?.toString() ?? 'n/a'}`,
         );
 
         if (!regexExistsInTitle) {

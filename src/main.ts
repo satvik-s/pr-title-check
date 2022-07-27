@@ -22,16 +22,11 @@ function run(): void {
             return;
         }
 
-        const inputPattern = core.getInput('pattern');
+        const inputPattern = core.getInput('pattern', { required: true });
         const inputFlags = core.getInput('flags');
 
-        if (inputPattern === '') {
-            core.setFailed('Input pattern is empty');
-            return;
-        }
-
         if (inputFlags === '') {
-            core.info('No input flags present. will fallback to default');
+            core.info('No input flags present. Will fallback to default');
         }
 
         const regexPattern = inputPattern;
@@ -39,11 +34,6 @@ function run(): void {
 
         core.info(`Pattern: ${regexPattern}`);
         core.info(`Flags: ${regexFlags}`);
-
-        if (!regexPattern || !regexFlags) {
-            core.setFailed('Required parameters absent');
-            return;
-        }
 
         const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);

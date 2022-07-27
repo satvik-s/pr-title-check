@@ -1,10 +1,12 @@
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
   pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
   build: # make sure build/ci work properly
@@ -20,3 +22,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./
+        with:
+          pattern: '(fix|feat|chore|docs|style|refactor|perf|test): (\S| )+'

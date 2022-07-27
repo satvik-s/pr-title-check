@@ -6,7 +6,7 @@ updates:
       interval: daily
     commit_message:
       prefix: 'chore'
-      include_scope: true
+      include_scope: false
 
   - package-ecosystem: npm
     directory: /
@@ -14,4 +14,4 @@ updates:
       interval: daily
     commit_message:
       prefix: 'chore'
-      include_scope: true
+      include_scope: false

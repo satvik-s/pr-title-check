@@ -34,7 +34,7 @@ const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const DEFAULT_FLAGS = 'gm';
 function run() {
-    var _a, _b, _c;
+    var _a;
     try {
         const { eventName } = github.context;
         core.info(`Event name: ${eventName}`);
@@ -59,11 +59,6 @@ function run() {
         core.info(`Flags: ${regexFlags}`);
         const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
-        core.info(`${regex.source},` +
-            `${regex.flags},` +
-            `${pullRequestTitle},` +
-            `${(_c = (_b = regex.exec(pullRequestTitle)) === null || _b === void 0 ? void 0 : _b.toString()) !== null && _c !== void 0 ? _c : 'n/a'},` +
-            `${pullRequestTitle.search(regex)}`);
         if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain the regex pattern');
             return;

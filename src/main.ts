@@ -38,14 +38,6 @@ function run(): void {
         const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
 
-        core.info(
-            `${regex.source},` +
-                `${regex.flags},` +
-                `${pullRequestTitle},` +
-                `${regex.exec(pullRequestTitle)?.toString() ?? 'n/a'},` +
-                `${pullRequestTitle.search(regex)}`,
-        );
-
         if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain the regex pattern');
             return;

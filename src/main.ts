@@ -36,7 +36,7 @@ function run(): void {
         const regexPattern = inputPattern;
         const regexFlags = inputFlags === '' ? DEFAULT_FLAGS : inputFlags;
 
-        core.info(`Patter: ${regexPattern}`);
+        core.info(`Pattern: ${regexPattern}`);
         core.info(`Flags: ${regexFlags}`);
 
         if (!regexPattern || !regexFlags) {
@@ -46,6 +46,12 @@ function run(): void {
 
         const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
+
+        core.info(
+            `${regex.source},
+            ${pullRequestTitle},
+            ${regex.exec(pullRequestTitle)?.toString() ?? 'n/a'}`,
+        );
 
         if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain the regex pattern');

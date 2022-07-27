@@ -4,8 +4,14 @@ updates:
     directory: /
     schedule:
       interval: daily
+    commit_message:
+      prefix: 'chore'
+      include_scope: true
 
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
+    commit_message:
+      prefix: 'chore'
+      include_scope: true

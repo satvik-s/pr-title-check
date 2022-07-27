@@ -24,8 +24,8 @@ function run(): void {
         const inputPattern = core.getInput('pattern');
         const inputFlags = core.getInput('flags');
 
-        core.debug(inputPattern);
-        core.debug(inputFlags);
+        core.info(inputPattern);
+        core.info(inputFlags);
 
         if (inputPattern === '') {
             core.setFailed('Input pattern is empty');

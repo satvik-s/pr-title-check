@@ -67,9 +67,10 @@ function run() {
         }
         const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
-        core.info(`${regex.source},
-            ${pullRequestTitle},
-            ${(_c = (_b = regex.exec(pullRequestTitle)) === null || _b === void 0 ? void 0 : _b.toString()) !== null && _c !== void 0 ? _c : 'n/a'}`);
+        core.info(`${regex.source},` +
+            `${regex.flags},` +
+            `${pullRequestTitle},` +
+            `${(_c = (_b = regex.exec(pullRequestTitle)) === null || _b === void 0 ? void 0 : _b.toString()) !== null && _c !== void 0 ? _c : 'n/a'}`);
         if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain the regex pattern');
             return;

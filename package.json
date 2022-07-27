@@ -1,5 +1,5 @@
 {
-  "name": "pr-title-check",
+  "name": "pr-title-checker",
   "version": "1.0.0",
   "description": "PR title check GitHub action",
   "main": "lib/main.js",

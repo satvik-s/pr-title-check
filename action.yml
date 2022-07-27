@@ -1,5 +1,5 @@
-name: 'PR Title Checker'
-description: 'Check PR title against an input regex'
+name: 'PR Title Verify'
+description: 'Check PR title against a regex'
 author: 'Satvik Shukla'
 inputs:
   pattern:

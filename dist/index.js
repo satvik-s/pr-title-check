@@ -32,8 +32,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
+const DEFAULT_FLAGS = 'gm';
 function run() {
-    var _a;
+    var _a, _b;
     try {
         const { eventName } = github.context;
         core.info(`Event name: ${eventName}`);
@@ -47,9 +48,11 @@ function run() {
             core.setFailed('Pull Request title not defined');
             return;
         }
-        const inputRegexString = core.getInput('regex');
-        core.info(`Input regex: ${inputRegexString}`);
-        const regex = new RegExp(inputRegexString, 'gm');
+        const regexPattern = core.getInput('pattern');
+        core.info(`Input regex: ${regexPattern}`);
+        const regexFlags = (_b = core.getInput('flags')) !== null && _b !== void 0 ? _b : DEFAULT_FLAGS;
+        core.info(`Flags: ${regexFlags}`);
+        const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
         if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain regex pattern');

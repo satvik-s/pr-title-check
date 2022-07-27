@@ -2,9 +2,12 @@ name: 'Satvik Shukla'
 description: 'Check PR title against an input regex'
 author: 'Satvik Shukla'
 inputs:
-  regex:
+  pattern:
     required: true
-    description: 'regex to match against'
+    description: 'regex pattern to match against'
+  flags:
+    required: false
+    description: 'flags for the regex input'
 runs:
   using: 'node16'
   main: 'dist/index.js'

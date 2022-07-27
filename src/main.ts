@@ -1,6 +1,8 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
+const DEFAULT_FLAGS = 'gm';
+
 function run(): void {
     try {
         const { eventName } = github.context;
@@ -19,10 +21,13 @@ function run(): void {
             return;
         }
 
-        const inputRegexString = core.getInput('regex');
-        core.info(`Input regex: ${inputRegexString}`);
+        const regexPattern = core.getInput('pattern');
+        core.info(`Input regex: ${regexPattern}`);
 
-        const regex = new RegExp(inputRegexString, 'gm');
+        const regexFlags = core.getInput('flags') ?? DEFAULT_FLAGS;
+        core.info(`Flags: ${regexFlags}`);
+
+        const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
 
         if (!regexExistsInTitle) {

@@ -24,9 +24,6 @@ function run(): void {
         const inputPattern = core.getInput('pattern');
         const inputFlags = core.getInput('flags');
 
-        core.info(inputPattern);
-        core.info(inputFlags);
-
         if (inputPattern === '') {
             core.setFailed('Input pattern is empty');
             return;
@@ -51,9 +48,7 @@ function run(): void {
         const regexExistsInTitle = regex.test(pullRequestTitle);
 
         if (!regexExistsInTitle) {
-            core.setFailed(
-                'PR title does not contain the provided regex pattern',
-            );
+            core.setFailed('PR title does not contain the regex pattern');
             return;
         }
 

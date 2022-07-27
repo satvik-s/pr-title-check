@@ -34,7 +34,7 @@ const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const DEFAULT_FLAGS = 'gm';
 function run() {
-    var _a, _b;
+    var _a;
     try {
         const { eventName } = github.context;
         core.info(`Event name: ${eventName}`);
@@ -48,14 +48,29 @@ function run() {
             core.setFailed('Pull Request title not defined');
             return;
         }
-        const regexPattern = core.getInput('pattern');
-        core.info(`Input regex: ${regexPattern}`);
-        const regexFlags = (_b = core.getInput('flags')) !== null && _b !== void 0 ? _b : DEFAULT_FLAGS;
+        const inputPattern = core.getInput('pattern');
+        const inputFlags = core.getInput('flags');
+        core.info(inputPattern);
+        core.info(inputFlags);
+        if (inputPattern === '') {
+            core.setFailed('Input pattern is empty');
+            return;
+        }
+        if (inputFlags === '') {
+            core.info('No input flags present. will fallback to default');
+        }
+        const regexPattern = inputPattern;
+        const regexFlags = inputFlags === '' ? DEFAULT_FLAGS : inputFlags;
+        core.info(`Patter: ${regexPattern}`);
         core.info(`Flags: ${regexFlags}`);
+        if (!regexPattern || !regexFlags) {
+            core.setFailed('Required parameters absent');
+            return;
+        }
         const regex = new RegExp(regexPattern, regexFlags);
         const regexExistsInTitle = regex.test(pullRequestTitle);
         if (!regexExistsInTitle) {
-            core.setFailed('PR title does not contain regex pattern');
+            core.setFailed('PR title does not contain the provided regex pattern');
             return;
         }
         core.info('Pattern exists in PR title');

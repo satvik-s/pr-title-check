@@ -70,7 +70,8 @@ function run() {
         core.info(`${regex.source},` +
             `${regex.flags},` +
             `${pullRequestTitle},` +
-            `${(_c = (_b = regex.exec(pullRequestTitle)) === null || _b === void 0 ? void 0 : _b.toString()) !== null && _c !== void 0 ? _c : 'n/a'}`);
+            `${(_c = (_b = regex.exec(pullRequestTitle)) === null || _b === void 0 ? void 0 : _b.toString()) !== null && _c !== void 0 ? _c : 'n/a'},` +
+            `${pullRequestTitle.search(regex)}`);
         if (!regexExistsInTitle) {
             core.setFailed('PR title does not contain the regex pattern');
             return;

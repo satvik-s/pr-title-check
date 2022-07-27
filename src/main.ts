@@ -13,7 +13,8 @@ function run(): void {
             return;
         }
 
-        const pullRequestTitle = github.context.payload.pull_request?.title;
+        const pullRequestTitle: string | undefined =
+            github.context.payload.pull_request?.title;
         core.info(`PR title: ${pullRequestTitle}`);
 
         if (!pullRequestTitle) {
@@ -51,7 +52,8 @@ function run(): void {
             `${regex.source},` +
                 `${regex.flags},` +
                 `${pullRequestTitle},` +
-                `${regex.exec(pullRequestTitle)?.toString() ?? 'n/a'}`,
+                `${regex.exec(pullRequestTitle)?.toString() ?? 'n/a'},` +
+                `${pullRequestTitle.search(regex)}`,
         );
 
         if (!regexExistsInTitle) {

@@ -17,24 +17,25 @@ More information about `pattern` and `flags` can be found in the
 ### Sample Workflow
 
 ```yml
-name: 'check PR title'
+name: 'PR Title Check'
 on:
-    pull_request:
-        types:
-            - opened
-            - edited
-            - synchronize
-            - labeled
-            - unlabeled
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
-    check:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: satvik-s/pr-title-check
-              with:
-                  pattern: '(fix|feat|chore|docs|style|refactor|perf|test): (\S| )+'
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: PR Title Verify
+        uses: satvik-s/pr-title-check@1.0.1 # use latest version
+        with:
+          pattern: '(fix|feat|chore|docs|style|refactor|perf|test): (?:\w+\b\W*){3,8}$'
 ```
 
 ## License

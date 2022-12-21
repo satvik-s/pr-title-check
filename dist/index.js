@@ -33,12 +33,15 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const DEFAULT_FLAGS = 'gm';
+const GITHUB_PULL_REQUEST_EVENT = 'pull_request';
+const GITHUB_PULL_REQUEST_TARGET_EVENT = 'pull_request_target';
 function run() {
     var _a;
     try {
         const { eventName } = github.context;
         core.info(`Event name: ${eventName}`);
-        if (eventName !== 'pull_request') {
+        if (eventName !== GITHUB_PULL_REQUEST_EVENT &&
+            eventName !== GITHUB_PULL_REQUEST_TARGET_EVENT) {
             core.setFailed(`Invalid event: ${eventName}`);
             return;
         }

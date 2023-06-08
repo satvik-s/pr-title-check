@@ -35,7 +35,7 @@ const github = __importStar(__nccwpck_require__(5438));
 const DEFAULT_FLAGS = 'gm';
 const DEFAULT_PATTERN = 
 // eslint-disable-next-line prettier/prettier, no-useless-escape
-'^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\([\w\-\.]+\))?(!)?: ([\w ])+([\s\S]*)';
+'^(?<type>build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test|¯\\_\(ツ\)_\/¯)(?<scope>\(\w+\)?((?=:\s)|(?=!:\s)))?(?<breaking>!)?(?<subject>:\s.*)?|^(?<merge>Merge \w+)';
 const GITHUB_PULL_REQUEST_EVENT = 'pull_request';
 const GITHUB_PULL_REQUEST_TARGET_EVENT = 'pull_request_target';
 function run() {

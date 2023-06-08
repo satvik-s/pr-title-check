@@ -37,6 +37,10 @@ function run(): void {
             core.info('No input flags present. Will fallback to default');
         }
 
+        if (inputPattern === '') {
+            core.info('No input pattern present. Will fallback to default');
+        }
+
         const regexPattern =
             inputPattern === '' ? DEFAULT_PATTERN : inputPattern;
         const regexFlags = inputFlags === '' ? DEFAULT_FLAGS : inputFlags;

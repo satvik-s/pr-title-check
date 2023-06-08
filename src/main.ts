@@ -3,7 +3,7 @@ import * as github from '@actions/github';
 
 const DEFAULT_FLAGS = 'gm';
 const DEFAULT_PATTERN =
-    // eslint-disable-next-line prettier/prettier
+    // eslint-disable-next-line prettier/prettier, no-useless-escape
     '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-z ]+\))?: [\w ]+$';
 const GITHUB_PULL_REQUEST_EVENT = 'pull_request';
 const GITHUB_PULL_REQUEST_TARGET_EVENT = 'pull_request_target';

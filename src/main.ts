@@ -2,6 +2,8 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 
 const DEFAULT_FLAGS = 'gm';
+const DEFAULT_PATTERN =
+    '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(([w-.]+))?(!)?: ([w ])+([sS]*)';
 const GITHUB_PULL_REQUEST_EVENT = 'pull_request';
 const GITHUB_PULL_REQUEST_TARGET_EVENT = 'pull_request_target';
 
@@ -27,14 +29,15 @@ function run(): void {
             return;
         }
 
-        const inputPattern = core.getInput('pattern', { required: true });
+        const inputPattern = core.getInput('pattern');
         const inputFlags = core.getInput('flags');
 
         if (inputFlags === '') {
             core.info('No input flags present. Will fallback to default');
         }
 
-        const regexPattern = inputPattern;
+        const regexPattern =
+            inputPattern === '' ? DEFAULT_PATTERN : inputPattern;
         const regexFlags = inputFlags === '' ? DEFAULT_FLAGS : inputFlags;
 
         core.info(`Pattern: ${regexPattern}`);

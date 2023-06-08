@@ -3,7 +3,7 @@ description: 'Check PR title against a regex'
 author: 'Satvik Shukla'
 inputs:
   pattern:
-    required: true
+    required: false
     description: 'regex pattern to match against'
   flags:
     required: false

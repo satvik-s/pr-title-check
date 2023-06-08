@@ -33,6 +33,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const DEFAULT_FLAGS = 'gm';
+const DEFAULT_PATTERN = '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(([w-.]+))?(!)?: ([w ])+([sS]*)';
 const GITHUB_PULL_REQUEST_EVENT = 'pull_request';
 const GITHUB_PULL_REQUEST_TARGET_EVENT = 'pull_request_target';
 function run() {
@@ -51,12 +52,12 @@ function run() {
             core.setFailed('Pull Request title not defined');
             return;
         }
-        const inputPattern = core.getInput('pattern', { required: true });
+        const inputPattern = core.getInput('pattern');
         const inputFlags = core.getInput('flags');
         if (inputFlags === '') {
             core.info('No input flags present. Will fallback to default');
         }
-        const regexPattern = inputPattern;
+        const regexPattern = inputPattern === '' ? DEFAULT_PATTERN : inputPattern;
         const regexFlags = inputFlags === '' ? DEFAULT_FLAGS : inputFlags;
         core.info(`Pattern: ${regexPattern}`);
         core.info(`Flags: ${regexFlags}`);

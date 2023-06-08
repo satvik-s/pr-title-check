@@ -13,6 +13,7 @@ More information about `pattern` and `flags` can be found in the
 [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp).
 
 `flags` is optional and defaults to `gm`.
+`pattern` is optional and defaults to conventional commit regex pattern.
 
 ### Sample Workflow
 
@@ -33,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: PR Title Verify
-        uses: satvik-s/pr-title-check@1.0.1 # use latest version
+        uses: satvik-s/pr-title-check
         with:
           pattern: '(fix|feat|chore|docs|style|refactor|perf|test): (?:\w+\b\W*){3,8}$'
 ```

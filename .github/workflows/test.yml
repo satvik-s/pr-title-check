@@ -1,4 +1,5 @@
-name: 'build-test'
+name: PR build
+
 on:
   pull_request:
     types:
@@ -14,13 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          npm install
+          npm ci
       - run: |
           npm run all
-  test:
+
+  test-action:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-        with:
-          pattern: '(fix|feat|chore|docs|style|refactor|perf|test): (\S| )+'

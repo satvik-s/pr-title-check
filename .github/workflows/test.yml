@@ -23,5 +23,3 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-        with:
-          pattern: '(fix|feat|chore|docs|style|refactor|perf|test): (\S| )+'

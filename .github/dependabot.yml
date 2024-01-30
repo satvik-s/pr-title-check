@@ -13,3 +13,13 @@ updates:
       interval: daily
     commit-message:
       prefix: 'chore'
+    ignore:
+      - dependency-name: '@types/node'
+    groups:
+      lint:
+        patterns:
+          - 'eslint*'
+          - 'prettier'
+          - 'husky'
+          - 'lint-staged'
+          - '@typescript-eslint*'

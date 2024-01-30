@@ -9,7 +9,7 @@ inputs:
     required: false
     description: 'flags for the regex input'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: 'check'

@@ -47,6 +47,6 @@
     "js-yaml": "4.1.0",
     "npm-check-updates": "16.14.20",
     "prettier": "3.2.5",
-    "typescript": "5.4.5"
+    "typescript": "5.5.4"
   }
 }

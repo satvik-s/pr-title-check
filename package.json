@@ -45,7 +45,7 @@
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-unused-imports": "4.1.4",
     "js-yaml": "4.1.0",
-    "npm-check-updates": "17.1.11",
+    "npm-check-updates": "17.1.13",
     "prettier": "3.4.2",
     "typescript": "5.7.2"
   }

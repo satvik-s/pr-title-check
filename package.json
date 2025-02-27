@@ -31,11 +31,11 @@
   },
   "devDependencies": {
     "@types/node": "22.10.2",
-    "@typescript-eslint/eslint-plugin": "8.23.0",
-    "@typescript-eslint/parser": "8.23.0",
+    "@typescript-eslint/eslint-plugin": "8.25.0",
+    "@typescript-eslint/parser": "8.25.0",
     "@vercel/ncc": "0.38.3",
-    "eslint": "9.19.0",
-    "eslint-config-prettier": "10.0.1",
+    "eslint": "9.21.0",
+    "eslint-config-prettier": "10.0.2",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-github": "5.1.8",
     "eslint-plugin-import": "2.31.0",
@@ -46,7 +46,7 @@
     "eslint-plugin-unused-imports": "4.1.4",
     "js-yaml": "4.1.0",
     "npm-check-updates": "17.1.11",
-    "prettier": "3.4.2",
+    "prettier": "3.5.2",
     "typescript": "5.7.2"
   }
 }
